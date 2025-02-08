@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Merchant extends Model
-{
-    use HasFactory;
-    protected $fillable = ['name', 'email', 'shop_name', 'password'];
 
-    public function stores()
-    {
-        return $this->hasMany(Store::class);
-    }
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Merchant extends Authenticatable
+{
+    protected $fillable = [ 'name', 'email', 'shop_name', 'password', 'is_admin'];
 }
+
 
